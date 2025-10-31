@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Primary Meta Tags -->
+<title>Dummy Text Generator | Free Lorem Ipsum & Bangla Paragraph Maker</title>
+<meta name="title" content="Dummy Text Generator | Free Lorem Ipsum & Bangla Paragraph Maker">
+<meta name="description" content="Generate instant dummy paragraphs in English or Bangla! Control paragraph and word count, copy or download easily. Perfect for web developers and designers.[Abdun Nur]">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourwebsite.com/">
+<meta property="og:title" content="Dummy Text Generator | Free Lorem Ipsum & Bangla Paragraph Maker">
+<meta property="og:description" content="Create random dummy text instantly with paragraph & word controls. Supports English, Bangla & custom words. Fast, minimal and mobile friendly.">
+<meta property="og:image" content="https://github.com/nur637788/My-Images/blob/main/Dummy%20text%20generator%20cover%20image.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://yourwebsite.com/">
+<meta property="twitter:title" content="Dummy Text Generator | Free Lorem Ipsum & Bangla Paragraph Maker">
+<meta property="twitter:description" content="Generate clean, responsive dummy text in seconds. For developers, designers & content creators.">
+<meta property="twitter:image" content="https://github.com/nur637788/My-Images/blob/main/Dummy%20text%20generator%20cover%20image.png">
+
+<!-- Additional SEO -->
+<meta name="keywords" content="dummy text generator, lorem ipsum, bangla dummy text, paragraph generator, random text, developer tools, web design filler, SEO text generator">
+<meta name="author" content="Abdun Nur">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#ff5ca8">
+<meta property="og:url" content="https://dummy-text-noyon.netlify.app/">
+<meta property="twitter:url" content="https://dummy-text-noyon.netlify.app/">
+<link rel="canonical" href="https://dummy-text-noyon.netlify.app/">
+
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    /* Dark + pink theme (user preference) */
+    :root{
+      --bg:#182967;
+      --card:#0f1724;
+      --accent:#ff5ca8;
+      --muted:#9aa3b2;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,var(--bg),#064ca7c0); color:#e6eef8; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px}
+    .card{width:100%; max-width:920px; background:var(--card); border-radius:14px; padding:22px; box-shadow:0 8px 30px rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.03)}
+    header{display:flex; gap:10px; align-items:center; margin-bottom:13px}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff8acb); display:flex;align-items:center;justify-content:center;font-weight:700;color:#101323}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:4px 0 0;color:var(--muted);font-size:8px}
+
+    .controls{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0}
+    .field{background:var(--glass); padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.02); min-width:160px}
+    label{display:block;font-size:12px;color:var(--muted); margin-bottom:6px}
+    input[type=number]{width:100%; padding:8px 6px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit}
+    input[type=number]::-webkit-inner-spin-button{opacity:0.7}
+
+    .actions{display:flex; gap:10px; align-items:center; margin-left:auto}
+    button{background:transparent;border:1px solid rgba(182, 60, 60, 0.358); padding:8px 12px;border-radius:10px; color:inherit; cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff8acb); color:#071023; border:none}
+    .btn-ghost{background:transparent}
+
+    .output{margin-top:10px; display:grid; grid-template-columns:1fr 260px; gap:12px}
+    textarea{width:100%; min-height:260px; resize:vertical; padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:#071022; color:inherit; font-size:15px}
+    .preview-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.03)}
+    .meta{font-size:13px;color:var(--muted); margin-bottom:8px}
+    .small{font-size:12px;color:var(--muted)}
+
+    footer{margin-top:14px; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:13px}
+
+    @media (max-width:820px){.output{grid-template-columns:1fr;}.actions{margin-left:0}}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <header>
+      <div class="logo">DT</div>
+      <div>
+        <h5>Dummy Text Generator</h5>
+        <p class="lead">দুইটা ইনপুট বক্স — Paragraphs ও Words per paragraph। Generate চাপলে টেক্সট তৈরি হবে।</p>
+      </div>
+      <div style="margin-left:auto; display:flex; gap:8px; align-items:center">
+        <button class="btn-ghost" id="copyBtn" title="Copy output">Copy</button>
+        <button class="btn-ghost" id="downloadBtn" title="Download as .txt">Download</button>
+      </div>
+    </header>
+
+    <section class="controls" aria-label="generator controls">
+      <div class="field">
+        <label for="paragraphs">Paragraphs</label>
+        <input id="paragraphs" type="number" min="1" max="50" value="3" />
+      </div>
+
+      <div class="field">
+        <label for="words">Words per paragraph</label>
+        <input id="words" type="number" min="1" max="2000" value="60" />
+      </div>
+
+      <div class="field" style="display:flex;align-items:center;gap:8px">
+        <label style="min-width:80px">Mode</label>
+        <select id="mode" style="padding:8px;border-radius:8px;background:transparent;color:inherit;border:1px solid rgba(224, 214, 214, 0.093)">
+          <option value="lorem">Lorem Ipsum</option>
+          <option value="bangla">Bangla Dummy</option>
+          <option value="custom">Custom words</option>
+        </select>
+      </div>
+
+      <div id="customField" class="field" style="flex:1; min-width:220px; display:none">
+        <label for="customWords">Custom word list (comma separated)</label>
+        <input id="customWords" type="text" placeholder="apple, banana, orange" />
+      </div>
+
+      <div class="actions">
+        <button id="generateBtn" class="btn-primary">Generate</button>
+        <button id="clearBtn">Clear</button>
+      </div>
+    </section>
+
+    <section class="output">
+      <div>
+        <textarea id="output" placeholder="Generated text will appear here..." aria-label="Generated text"></textarea>
+      </div>
+      <div class="preview-card">
+        <div class="meta">Preview & Info</div>
+        <div class="small">Paragraphs: <span id="pCount">0</span></div>
+        <div class="small">Total words: <span id="wCount">0</span></div>
+        <div style="height:12px"></div>
+        <div class="small">Tips:</div>
+        <ul class="small" style="margin:6px 0 0;padding-left:18px;color:var(--muted)">
+          <li>Paragraphs limit: 1–50</li>
+          <li>Words per paragraph limit: 1–2000</li>
+          <li>Choose "Custom" to use your own words (comma separated)</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>Created by ABDUN NUR — open the file in a browser to use</div>
+      <div style="opacity:0.9">Dark + Pink theme</div>
+    </footer>
+  </main>
+
+  <script>
+    // word pools
+    const loremPool = (`lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat`).split(' ');
+    const banglaPool = (`বাংলা টেক্সট পরীক্ষার জন্য উদাহরণ স্বরূপ কিছু সাধারণ শব্দ এখানে রয়েছে যা ডামি প্যারাগ্রাফ তৈরি করতে ব্যবহৃত হবে টেক্সট জেনারেটর সহজ এবং দ্রুত`).split(' ');
+
+    // elements
+    const paragraphs = document.getElementById('paragraphs');
+    const words = document.getElementById('words');
+    const output = document.getElementById('output');
+    const generateBtn = document.getElementById('generateBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const pCount = document.getElementById('pCount');
+    const wCount = document.getElementById('wCount');
+    const mode = document.getElementById('mode');
+    const customField = document.getElementById('customField');
+    const customWords = document.getElementById('customWords');
+
+    function pick(pool){
+      return pool[Math.floor(Math.random()*pool.length)];
+    }
+
+    function generate(pars, wordsPerPar, pool){
+      const paras = [];
+      for(let i=0;i<pars;i++){
+        const w = [];
+        for(let j=0;j<wordsPerPar;j++){
+          let word = pick(pool);
+          // small chance to add punctuation
+          if(Math.random() < 0.06 && j>0) word = word + ',';
+          w.push(word);
+        }
+        // capitalize first word and end with a period
+        let sentence = w.join(' ');
+        sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+        if(!/[.?!]$/.test(sentence)) sentence = sentence + '.'.repeat(1);
+        paras.push(sentence);
+      }
+      return paras.join('\n\n');
+    }
+
+    function updateCounts(text){
+      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+      const paras = text.trim() ? text.split(/\n\n+/).filter(p=>p.trim()).length : 0;
+      pCount.textContent = paras;
+      wCount.textContent = words;
+    }
+
+    generateBtn.addEventListener('click', ()=>{
+      let p = parseInt(paragraphs.value) || 1;
+      let w = parseInt(words.value) || 50;
+
+      // clamp values
+      p = Math.max(1, Math.min(50, p));
+      w = Math.max(1, Math.min(2000, w));
+
+      let pool;
+      if(mode.value === 'lorem') pool = loremPool;
+      else if(mode.value === 'bangla') pool = banglaPool;
+      else {
+        const custom = customWords.value.split(',').map(s=>s.trim()).filter(Boolean);
+        pool = custom.length ? custom : loremPool;
+      }
+
+      const result = generate(p, w, pool);
+      output.value = result;
+      updateCounts(result);
+    });
+
+    clearBtn.addEventListener('click', ()=>{ output.value = ''; updateCounts(''); });
+
+    copyBtn.addEventListener('click', async ()=>{
+      const text = output.value;
+      if(!text) return alert('No text to copy');
+      try{
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = 'Copied';
+        setTimeout(()=>copyBtn.textContent = 'Copy',900);
+      }catch(e){
+        alert('Copy failed — your browser may block clipboard access.');
+      }
+    });
+
+    downloadBtn.addEventListener('click', ()=>{
+      const text = output.value;
+      if(!text) return alert('Nothing to download');
+      const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'dummy-text.txt';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    mode.addEventListener('change', ()=>{
+      customField.style.display = mode.value === 'custom' ? 'block' : 'none';
+    });
+
+    // initialize counts
+    updateCounts('');
+  </script>
+</body>
+</html>
